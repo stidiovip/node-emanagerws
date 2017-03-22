@@ -12,18 +12,18 @@ server.use(morgan('dev'));                                         // log every 
 server.use(bodyParser.json());                                     // parse application/json
 server.use(methodOverride());
 
-server.use(function(req, res, next) {
+server.use( (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
 
-server.get('/contacts', function(req, res) {
+server.get('/contacts', (req, res) => {
     let contacts = mService.getContacts();
     res.json(contacts);
 });
 
-server.get('/contacts/:id', function(req, res) {
+server.get('/contacts/:id', (req, res) => {
     let contact = mService.findContactById(req.params.id);
     res.json(contact);
 });
