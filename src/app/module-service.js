@@ -8,7 +8,7 @@ class ModuleService {
     /**
      * Default contructor
      */
-    constructor (){
+    constructor ( ){
         this.mData = new ModuleData();
     }
 

@@ -49,7 +49,7 @@ class ModuleData {
      * @param contact
      */
     addContact (contact){
-        this.push(contact);
+        this._contacts.push(contact);
     }
 
     /**
@@ -68,7 +68,7 @@ class ModuleData {
      * @param contact
      */
     deleteContact (contact){
-        _(this._contacts).remove ( (_contact) => {
+        _.remove(this._contacts, function (_contact){
             return contact.id == _contact.id;
         });
     }

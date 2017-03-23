@@ -28,5 +28,16 @@ server.get('/contacts/:id', (req, res) => {
     res.json(contact);
 });
 
+server.post('/contacts', (req, res) => {
+    let contact = mService.addContact(req.body);
+    res.json(contact);
+});
+
+server.delete('/contacts', (req, res) => {
+    mService.deleteContact(req.body);
+    res.status(200).end();
+});
+
+
 server.listen(9484);
 console.log("Access to the app at : http://localhost:9484/");
